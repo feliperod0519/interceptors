@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/login/auth.service';
 export class ExerciseSetsService {
   private httpClient = inject(HttpClient);
 
-  private url = 'http://localhost:3000/diary';//'diary';
+  private url = 'http://localhost:3001/diary';//'diary';
 
   private authService = inject(AuthService);
 

@@ -13,7 +13,7 @@ export class HostInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const url = 'http://localhost:3000';
+    const url = 'http://localhost:3001';
     const resource = request.url;
 
     if (request.url.includes('http')) {

@@ -12,10 +12,8 @@ import { LoadService } from './load.service';
 export class LoadInterceptor implements HttpInterceptor {
   private loadService = inject(LoadService);
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>,next: HttpHandler): Observable<HttpEvent<unknown>> {
+    console.log('jsjkdsjkds')
     if (request.headers.get('X-LOADING') === 'false') {
       return next.handle(request);
     }

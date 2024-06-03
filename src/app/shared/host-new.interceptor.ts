@@ -13,6 +13,13 @@ export class HostNewInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    const url = 'http://localhost:3001';
+    const resource = request.url;
+    if (request.url.includes('http'))
+      return next.handle(request)
+    console.log('hello')
+    const urlsReq= request.clone({ url: `${url}/${resource}`})
+    console.log('urlsReq:',urlsReq);
+    return next.handle(urlsReq)
   }
 }

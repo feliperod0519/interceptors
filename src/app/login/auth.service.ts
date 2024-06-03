@@ -8,7 +8,7 @@ import { LoginForm, Token } from './auth';
 })
 export class AuthService {
   private httpClient = inject(HttpClient);
-  private url = 'http://localhost:3000/auth/login';
+  private url = 'auth/login';//'http://localhost:3001/auth/login';
   #token?: Token;
 
   login(loginForm: Partial<LoginForm>): Observable<Token> {

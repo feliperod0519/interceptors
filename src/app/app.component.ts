@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LoadService } from './loading-overlay/load.service';
+import { LoadNewService } from './loading-overlay/load-new.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { LoadService } from './loading-overlay/load.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  loadService = inject(LoadService);
+  loadService = inject(LoadNewService);
   title = 'gym-diary';
 }

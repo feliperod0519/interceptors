@@ -14,9 +14,12 @@ import { NotificationInterceptor } from './notification/notification.interceptor
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TelemetryInterceptor } from './telemetry/telemetry.interceptor';
 import { AuthNewInterceptor } from './login/auth-new.interceptor';
+import { HostNewInterceptor } from './shared/host-new.interceptor';
+import { LoadingOverlayNewComponent } from './loading-overlay-new/loading-overlay-new.component';
+import { LoadNewInterceptor } from './loading-overlay/load-new.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, ErrorPageComponent, LoadingOverlayComponent],
+  declarations: [AppComponent, ErrorPageComponent, LoadingOverlayComponent, LoadingOverlayNewComponent],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -25,8 +28,9 @@ import { AuthNewInterceptor } from './login/auth-new.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthNewInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: HostInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadInterceptor, multi: true },
+    //{ provide: HTTP_INTERCEPTORS, useClass: HostInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HostNewInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadNewInterceptor, multi:true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NotificationInterceptor,
